@@ -17,7 +17,7 @@ defmodule ServerWeb.Router do
     pipe_through :browser
 
     get "/hello", HelloController, :index
-    get "/hello/:user", HelloController, :index
+    get "/hello/:user", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
