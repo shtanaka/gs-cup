@@ -1,9 +1,7 @@
-FROM elixir:latest-alpine as build-elixir
-FROM node:10.9-alpine as build-node
+FROM elixir:latest
 
-RUN apt-get update 
-RUN apt-get install -y postgresql-client
-RUN apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+ && apt-get install -y postgresql-client inotify-tools nodejs
 
 RUN mkdir /app
 COPY . /app
