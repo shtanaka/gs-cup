@@ -2,10 +2,11 @@ use Mix.Config
 
 # Configure your database
 config :server, Server.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "server_dev",
-  hostname: "localhost",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  database: System.get_env("DB_NAME"),
+  hostname: System.get_env("DB_HOST"),
+  port: System.get_env("DB_PORT"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
