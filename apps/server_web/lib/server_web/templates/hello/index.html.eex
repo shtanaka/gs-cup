@@ -1,5 +1,5 @@
 <section class="phx-hero">
   <h1>
-    Hello Msafadsfadsfadfafadsfadsfer <%= @user %>!
+    Hello <%= @user %>!
   </h1>
 </section>

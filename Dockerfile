@@ -7,10 +7,9 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-RUN mix local.hex --force
-RUN mix local.rebar --force
-RUN mix deps.get
-RUN mix do compile
+RUN mix local.hex --force && mix local.rebar --force \
+    && mix do deps.get, deps.compile \
+    && cd apps/server_web/assets && npm install
 
 CMD ["/app/entrypoint.sh"]
 
