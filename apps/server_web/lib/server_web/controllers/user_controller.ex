@@ -1,7 +1,11 @@
 defmodule ServerWeb.UserController do
-  use ServerWeb, :controller
+  use Phoenix.Controller
 
-  def show(conn, _params) do
-    render(conn, "index.html", user: "Stranger")
+  action_fallback ServerWeb.FallbackController
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, user} <- {:ok, %{id: id, name: "asap"}} do
+      json(conn, user)
+    end
   end
 end
